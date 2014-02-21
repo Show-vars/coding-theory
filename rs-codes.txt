@@ -1,0 +1,61 @@
+Код Рида — Соломона
+
+Коды Рида — Соломона (Reed–Solomon codes) — недвоичные циклические коды, позволяющие исправлять ошибки в блоках данных. Элементами кодового вектора являются не биты, а группы битов (блоки). Код Рида — Соломона является частным случаем БЧХ-кода. В настоящее время широко используется в системах восстановления данных с компакт-дисков, при создании архивов с информацией для восстановления в случае повреждений, в помехоустойчивом кодировании. Код Рида — Соломона является одним из наиболее мощных кодов, исправляющих многократные пакеты ошибок. Применяется в каналах, где пакеты ошибок могут образовываться столь часто, что их уже нельзя исправлять с помощью кодов, исправляющих одиночные ошибки.
+
+Код Рида — Соломона был изобретён в 1960 году сотрудниками лаборатории Линкольна Массачуссетского технологического института Ирвином Ридом и Густавом Соломоном. Идея использования этого кода была представлена в статье «Polynomial Codes over Certain Finite Fields». Эффективные алгоритмы декодирования были предложены в 1969 году Элвином Берлекэмпом и Джэймсом Месси (алгоритм Берлекэмпа — Мэсси) и в 1977 году Давидом Мандельбаумом. Первое применение код Рида — Соломона получил в 1982 году в серийном выпуске компакт-дисков.
+
+Код Рида — Соломона над GF(q^m), исправляющий t ошибок, требует 2t проверочных символов и с его помощью исправляются произвольные пакеты ошибок длиной t и меньше. Согласно теореме о границе Рейгера, коды Рида — Соломона являются оптимальными с точки зрения соотношения длины пакета и возможности исправления ошибок — используя 2t дополнительных проверочных символов исправляется t ошибок (и менее).
+
+При операции кодирования информационный полином умножается на порождающий многочлен. Умножение исходного слова S длины k на неприводимый полином при систематическом кодировании можно выполнить следующим образом:
+
+    К исходному слову приписываются 2t нулей, получается полином T = S x^{2t}.
+    Этот полином делится на порождающий полином G, находится остаток R, S * x^(2t) = Q * G + R, где Q — частное.
+    Этот остаток и будет корректирующим кодом Рида — Соломона, он приписывается к исходному блоку символов. Полученное кодовое слово C = S * x^(2t) + R.
+
+Декодирование
+
+Декодировщик последовательно выполняет следующие действия:
+
+    Вычисляет синдром ошибки
+    Строит полином ошибки
+    Находит корни данного полинома
+    Определяет характер ошибки
+    Исправляет ошибки
+
+Применение
+
+Сразу после появления (60-е годы 20-го века) коды Рида - Соломона стали применяться в качестве внешних кодов в каскадных конструкциях, использующихся в спутниковой связи. В подобных конструкциях q-ые символы РС(их может быть несколько) кодируются внутренними сверточными кодами. На приемном конце эти символы декодируются мягким алгоритмом Витерби (эффективный в каналах с АБГШ). Такой декодер будет исправлять одиночные ошибки в q-ичных символах, когда же возникнут пакетные ошибки и некоторые пакеты q-ичных символов будут декодированы неправильно, тогда внешний декодер Рида - Соломона исправит пакеты этих ошибок. Таким образом будет достигнута требуемая надежность передачи информации ([5]).
+В настоящий момент коды Рида — Соломона имеют очень широкую область применения благодаря их способности находить и исправлять многократные пакеты ошибок.
+Запись и хранение информации
+Код Рида — Соломона используется при записи и чтении в контроллерах оперативной памяти, при архивировании данных, записи информации на жесткие диски (ECC), записи на CD/DVD диски, при передаче данных по сетям WiMAX, в оптических линиях связи, в спутниковой и радиорелейной связи. Даже если поврежден значительный объем информации, испорчено несколько секторов дискового носителя, то коды Рида — Соломона позволяют восстановить большую часть потерянной информации. Также используется при записи на такие носители, как магнитные ленты и штрихкоды.
+
+Дискретное преобразование Фурье (DFT, Discrete Fourier Transform) — это одно из преобразований Фурье, широко применяемых в алгоритмах цифровой обработки сигналов (его модификации применяются в сжатии звука в MP3, сжатии изображений в JPEG и др.), а также в других областях, связанных с анализом частот в дискретном (к примеру, оцифрованном аналоговом) сигнале. Дискретное преобразование Фурье требует в качестве входа дискретную функцию. Существуют многомерные дискретные преобразования Фурье.
+
+Reed-Solomon code
+
+Reed-Solomon codes - non-binary cyclic codes, allowing to correct errors in data blocks. Codevector elements are not bits but groups of bits (blocks). Reed-Solomon codes are a special case of BCH codes. It is now widely used in systems data recovery from CD, creating archives with information for recovery in case of damage and antinoise coding. Reed-Solomon code is one of the most powerful code which corrects multiple error packages. It used in channels where error pacages can be formed so often that they can not be corrected with the help of codes which corrects single errors.
+
+Reed-Solomon code was invented in 1960 by members of the Lincoln Laboratory of MIT Irving Reed and Gustave Solomon. The idea of ​​using this code was presented in the article «Polynomial Codes over Certain Finite Fields». Efficient decoding algorithms have been proposed in 1969 by Elwyn Berlekamp and James Massey ( Berlekamp - Massey algorythm ), and in 1977 by David Mandelbaum. The first application of Reed-Solomon code received in 1982 as the serial production of CDs.
+
+Reed-Solomon code over GF(q ^ m), correcting t errors, requires 2t parity bits and corrects random error pacages with the length of t and less. According to the theorem on the border Reygera, Reed-Solomon codes are optimal in terms of the ratio of the packet length and error correction capabilities - using 2t additional parity bits it corrects t errors ( or less).
+
+During the encoding operation information polynomial is multiplied by the generating polynomial. Multiplycation of the original word k of S length by the irreducible polynomial in the systematic coding can be performed as follows:
+
+    To the original word attributed by 2t zeros, obtained polynomial is T = S x ^ {2t}.
+    This polynomial is divided by the generator polynomial G, the residue is R, S * x ^ (2t) = Q * G + R, where Q - quotient.
+    This residue will be correcting Reed-Solomon code, it attributed to the original block of characters. The calculated codeword is C = S * x ^ (2t) + R.
+
+Decoder performs the following actions step-by-step:
+
+    Calculates the error syndrome
+    Build error polynomial
+    Finds the roots of this polynomial
+    Determines the ензу of the error
+    Сorrects errors
+
+Sinse creating Reed-Solomon code began to be used as outer codes in concatenated structures used in satellite communications. In such constructions q-s RS symbols are encoded by inner convolutional codes. In the receiver the symbols are decoded by the Viterbi mild algorithm. Such decoder will correct the single errors in the q-ary symbols, when burst errors do occur and some packets of q-ary symbols will be decoded uncorrectly, then an external decoder of the Reed-Solomon code fix these errors pakages. Thus the required reliability of the transmission of the information will be achieved.
+Currently, Reed-Solomon code have a very wide range of applications due to their ability to find and correct multiple error packages.
+Recording and storing of the information
+Reed-Solomon code used in writing and reading in the RAM controller, data archiving, recording information on hard disks, birning in CD / DVD discs, data transmission over WiMAX networks, in optical communicational lines, in satellite and relay connections. Even if a significant amount of information has been damaged, several sectors of media disc has been spoiled, the Reed-Solomon code allows you to recover most of the lost information. Also code used for recording media such as magnetic tapes and barcodes.
+
+Discrete Fourier Transform - is one of Fourier transformation which is widely used in digital signal processing algorithms ( the audio compression, MP3, JPEG image compression, etc.) as well as in other areas connected with the analysis of discrete signal ( for example, the digitized analog one). Discrete Fourier Transform requires a discrete function as an input. There are multi-dimensional discrete Fourier Transforms.
